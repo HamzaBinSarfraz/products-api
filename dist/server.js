@@ -14,9 +14,8 @@ app.listen(port, function () {
 });
 
 // default route
-
 app.get("**", function (req, res) {
     res.status(200).send({
-        message: 'YO! Hello from another side ...'
+        message: 'YO! Hello Heroku ...'
     });
 });

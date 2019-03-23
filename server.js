@@ -9,6 +9,6 @@ app.listen(port, () => {
 // default route
 app.get("**", (req, res) => {
     res.status(200).send({
-        message: 'YO! Hello from another side ...'
+        message: 'YO! Hello Heroku ...'
     })
 })
