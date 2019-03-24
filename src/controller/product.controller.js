@@ -26,10 +26,18 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     ProductModel.find()
         .then(data => {
-            return res.status(200).send({
-                success: true,
-                data: data
-            })
+            if(data.length > 0) {
+                return res.status(200).send({
+                    success: true,
+                    data: data, 
+                    length: data.length
+                })
+            } else {
+                return res.status(200).send({
+                    success: false,
+                    data: 'no record found'
+                })
+            }
         })
         .catch(err => {
             return res.status(404).send({

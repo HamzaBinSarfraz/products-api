@@ -3,12 +3,13 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 require('./logger.config');
 require('./db.config');
 const app = express();
 const port = process.env.PORT || 3000;
 
-
+// require('../src/route/product.route');
 app.use(cors());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,14 +29,18 @@ app.use(helmet());
 // for dev
 app.use(morgan("combined"));
 
-
-app.listen(port, () => {
-    console.log('server is live on port ' + port);
-})
+// import all routes at once
+require('./routes.config')(app);
 
 // default route
 app.get("/", (req, res) => {
     res.status(200).send({
         message: 'YO! Hello Heroku ...'
     })
+})
+
+
+
+app.listen(port, () => {
+    console.log('server is live on port ' + port);
 })
