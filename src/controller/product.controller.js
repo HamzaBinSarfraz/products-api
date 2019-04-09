@@ -30,8 +30,7 @@ exports.findAll = (req, res) => {
                 return res.status(200).send({
                     success: true,
                     data: data, 
-                    length: data.length,
-                    imagePath: 'https://products-hamza.herokuapp.com/' + data.productImage
+                    length: data.length
                 })
             } else {
                 return res.status(200).send({

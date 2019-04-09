@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const path = require('path');
 require('./logger.config');
 require('./db.config');
 const app = express();
@@ -37,9 +38,9 @@ app.get("/", (req, res) => {
     res.status(200).send({
         message: 'YO! Hello Heroku ...'
     })
-})
+});
 
-
+app.get('/images', express.static(path.join(__dirname, "../images")))
 
 app.listen(port, () => {
     console.log('server is live on port ' + port);
