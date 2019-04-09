@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     })
 });
 
-app.use(express.static('../images');
+app.use(express.static('../images'));
 
 app.listen(port, () => {
     console.log('server is live on port ' + port);
