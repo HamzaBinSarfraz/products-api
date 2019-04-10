@@ -24,6 +24,7 @@ exports.create = (req, res) => {
 
 
 exports.findAll = (req, res) => {
+    console.log('i am here ...');
     ProductModel.find()
         .then(data => {
             if(data.length > 0) {

@@ -6,7 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 require('./logger.config');
-// require('./db.config');
+require('./db.config');
 const app = express();
 const port = process.env.PORT || 9000;
 
