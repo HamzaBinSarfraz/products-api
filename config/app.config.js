@@ -6,10 +6,11 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 require('./logger.config');
-require('./db.config');
+// require('./db.config');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9000;
 
+app.use(express.static('./images'));   
 // require('../src/route/product.route');
 app.use(cors());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -40,7 +41,14 @@ app.get("/", (req, res) => {
     })
 });
 
-app.use(express.static('../images'));
+app.get('/images', (req, res) => {
+    res.status(200).send({
+        success: true, 
+        imageUrl: 'localhost:9000/../../images/foo.jpg'
+    })
+})
+
+
 
 app.listen(port, () => {
     console.log('server is live on port ' + port);
