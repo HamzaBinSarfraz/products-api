@@ -1,5 +1,7 @@
 language: node_js
-script: "sudo $(which npm) test"
+scripts:
+  test: "echo \"Error: no test specified\" && exit 1",
+  start: "node server.js"
 node_js: 
   - "stable"
 deploy:
