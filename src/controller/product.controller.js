@@ -2,6 +2,7 @@
 const ProductModel = require('../model/product.model');
 
 exports.create = (req, res) => {
+    console.log(req.file.path);
     const newProduct = new ProductModel({
         productName: req.body.productName,
         productDetail: req.body.productDetail,

@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     })
 });
 
-const publicDir = require('path').join(__dirname,'../images');
+const publicDir = require('path').join(__dirname,'../public');
 console.log(publicDir);
 app.use(express.static(publicDir));
 
