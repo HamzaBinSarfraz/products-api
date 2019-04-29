@@ -10,7 +10,6 @@ require('./db.config');
 const app = express();
 const port = process.env.PORT || 9000;
 
-app.use(express.static('./images'));   
 // require('../src/route/product.route');
 app.use(cors());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -41,14 +40,9 @@ app.get("/", (req, res) => {
     })
 });
 
-app.get('/images', (req, res) => {
-    res.status(200).send({
-        success: true, 
-        imageUrl: 'localhost:9000/../../images/foo.jpg'
-    })
-})
-
-
+const publicDir = require('path').join(__dirname,'../images');
+console.log(publicDir);
+app.use(express.static(publicDir));
 
 app.listen(port, () => {
     console.log('server is live on port ' + port);

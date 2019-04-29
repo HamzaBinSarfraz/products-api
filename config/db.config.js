@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })
 
-const dbUrl = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0-hkzvq.mongodb.net/test?retryWrites=true`
+const dbUrl = `mongodb+srv://hamza:123hamza123@cluster0-hkzvq.mongodb.net/test?retryWrites=true`
 mongoose.Promise = global.Promise;
 
 mongoose.set("useCreateIndex", true);
