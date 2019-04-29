@@ -3,10 +3,11 @@ const ProductModel = require('../model/product.model');
 
 exports.create = (req, res) => {
     console.log(req.file.path);
+    let ret = req.file.path.replace('public/','');
     const newProduct = new ProductModel({
         productName: req.body.productName,
         productDetail: req.body.productDetail,
-        productImage: req.file.path
+        productImage: ret
     });
     newProduct.save()
         .then(data => {
