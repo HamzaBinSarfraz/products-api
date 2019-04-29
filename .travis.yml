@@ -1,0 +1,10 @@
+language: node_js
+scripts:
+  test: "echo \"Error: no test specified\" && exit 1",
+  start: "node server.js"
+node_js: 
+  - "stable"
+deploy:
+  provider: heroku
+  api_key:
+    secure: "e22c1045-2740-43e9-9b20-025f8e7e6e46"
